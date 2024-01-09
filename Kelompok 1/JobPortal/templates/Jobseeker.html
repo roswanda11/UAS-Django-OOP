@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+{% load static%}
+
+{% block content %}
+<div class="container card">
+    <h1>Telah Dibuka</h1>
+    <div class="card-body">
+        <table class="table table-hover">
+            <tr>
+                <th>Nama</th>
+                <th>Posisi yang dibutuhkan</th>
+                <th>Deskripsi</th>
+                <th>Gaji</th>
+                <th>Pengalaman</th>
+                <th>Penempatan</th>
+                <th>Join</th>
+            </tr>
+            {% for c in companies %}
+                <tr>
+                    <td>{{c.name}}</td>
+                    <td>{{c.position}}</td>
+                    <td>{{c.description}}</td>
+                    <td>{{c.salary}}</td>
+                    <td>{{c.experience}}</td>
+                    <td>{{c.Location}}</td>
+                    <td><a href="{% url 'apply' %}" class="btn btn-info btn-sm" type="submit">Apply</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+        {% for c in companies %}
+            {{c.name}}
+        {% endfor %}
+{% endblock %}
